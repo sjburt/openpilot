@@ -187,6 +187,12 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.15], [0.05]]
       ret.mass = 3800. * CV.LB_TO_KG + STD_CARGO_KG
       ret.lateralTuning.pid.kf = 0.00004
+      ret.lateralTuning.init('indi')
+      ret.lateralTuning.indi.outerLoopGainBP = [20, 21, 25, 26]
+      ret.lateralTuning.indi.outerLoopGainV = [11.0, 16.5, 17.0, 20.99]
+      ret.lateralTuning.indi.innerLoopGain = 21.0
+      ret.lateralTuning.indi.timeConstant = 6.5
+      ret.lateralTuning.indi.actuatorEffectiveness = 21.0
 
       for fw in car_fw:
         if fw.ecu == "eps" and fw.fwVersion == b"8965B42170\x00\x00\x00\x00\x00\x00":
